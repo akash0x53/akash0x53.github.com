@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://akash0x53.github.com/akash0x53
+title: Me-Python-OpenCV
+subtitle: Space for personal,python & OpenCV.
+author: Akash 
 simple_search: http://google.com/search
 description:
 
@@ -58,7 +58,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: akash0x53
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
