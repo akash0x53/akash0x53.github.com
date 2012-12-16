@@ -6,6 +6,8 @@ comments: true
 categories:
 ---
 
-Finally i managed to deploy this first blog with custom theme.I faced some problem while deploying on GitHub. Actullay, Octopress has written a confusing instruction on website. There is no example just plain english sentences. But an example is more than senetences,so i thought of writing first blog on Octopress deploying on GitHub.
+Finally i managed to deploy the first blog with custom theme.I have added facebook link that wasn't provided by Octopress. Octopress is really easy,simple,beautiful.But while setting up Octopress I faced some problems.Actullay, Octopress has written a confusing instructions on startup guide.So i thought of writing first blog on Octopress deploying on GitHub.
+
+First i assume that you have cloned 
 
 
