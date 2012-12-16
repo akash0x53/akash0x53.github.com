@@ -6,6 +6,6 @@ comments: true
 categories:
 ---
 
-<h1> Octopress And GitHub<h1>
+Finally i managed to deploy this first blog with custom theme.I faced some problem while deploying on GitHub. Actullay, Octopress has written a confusing instruction on website. There is no example just plain english sentences. But an example is more than senetences,so i thought of writing first blog on Octopress deploying on GitHub.
 
 
