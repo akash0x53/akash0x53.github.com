@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Me-Python-OpenCV]]></title>
+  <title><![CDATA[I'maKash]]></title>
   <link href="http://akash0x53.github.com/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2012-12-17T00:08:45+05:30</updated>
+  <updated>2012-12-17T13:24:57+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -18,7 +18,128 @@
     <link href="http://akash0x53.github.com/blog/2012/12/16/octopress-and-github/"/>
     <updated>2012-12-16T19:09:00+05:30</updated>
     <id>http://akash0x53.github.com/blog/2012/12/16/octopress-and-github</id>
-    <content type="html"><![CDATA[<p>Finally i managed to deploy this first blog with custom theme.I faced some problem while deploying on GitHub. Actullay, Octopress has written a confusing instruction on website. There is no example just plain english sentences. But an example is more than senetences,so i thought of writing first blog on Octopress deploying on GitHub.</p>
+    <content type="html"><![CDATA[<p>Finally i managed to deploy Octopress on <a href="http://www.pages.github.com">GitHub (pages)</a> with custom theme. I added facebook profile link that wasn&#8217;t provided by Octopress. Octopress is really easy,simple and beautiful.But I faced some problems while setting up Octopress.</br>So i thought of writing the first blog on &#8220;Deploying Octopress on GitHub&#8221;.</p>
+
+<!--more-->
+
+
+<p>I assumed you have installed RVM and Ruby on your machine.
+</br>My environment: <code>RVM 1.17.3, Ruby 1.9.3p327, Ubuntu 11.10</code></p>
+
+<h4>Installing Octopress</h4>
+
+
+
+
+<figure class='code'><figcaption><span>prepare workspace</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>akash@desktop:<span class="nv">$ </span>mkdir github_pages <span class="c">#create your project directory</span>
+</span><span class='line'>akash@desktop:<span class="nv">$ </span><span class="nb">cd </span>github_pages
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git clone https://github.com/imathis/octopress.git octopress <span class="c">#clone octopress repo into octopress directory</span>
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>bundle install <span class="c"># more about bundler http://gembundler.com/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now install Octopress</p>
+
+<figure class='code'><figcaption><span>install Octopress</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>akash@desktop:<span class="nv">$ </span>rake install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command install Octopress default theme. You can install third party themes for octopress. <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">List of third party themes</a></p>
+
+<h4>Deploying to GitHub</h4>
+
+
+<p>You must have a github repository with strict naming convention as <code>username.github.com</code>.
+After creating repository on GitHub, its time to configure rake for deploying blog.</p>
+
+<figure class='code'><figcaption><span>rake setup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>akash@desktop:<span class="nv">$ </span>rake setup_github_pages
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will ask you for github repository details. You have to follow the convention as</p>
+
+<p><code>git@github.com:username/username.github.com</code>
+Note: do not add &#8220;.git&#8221; at the end.</p>
+
+<figure class='code'><figcaption><span>Check for remote repository</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git remote -v
+</span><span class='line'>
+</span><span class='line'><span class="c">#This was my output.</span>
+</span><span class='line'>origin    git@github.com:akash0x53/akash0x53.github.com <span class="o">(</span>fetch<span class="o">)</span>
+</span><span class='line'>origin    git@github.com:akash0x53/akash0x53.github.com <span class="o">(</span>push<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#If your output is</span>
+</span><span class='line'>octopress   git://github.com/imathis/octopress.git <span class="o">(</span>fetch<span class="o">)</span>
+</span><span class='line'>octopress   git://github.com/imathis/octopress.git <span class="o">(</span>push<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#then you need to add your repo using</span>
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git add remote add origin git@github.com:username/username.github.com.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To delete Octopress branch using</p>
+
+<figure class='code'><figcaption><span>Deleting remote branch</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>akash@desktop:<span class="nv">$ </span>git remote rm Octopress
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To publish pages on GitHub rename your branch to <code>source</code> branch</p>
+
+<figure class='code'><figcaption><span>rename branch</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>akash@desktop:<span class="nv">$ </span>git branch
+</span><span class='line'>      * master
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git branch -m master <span class="nb">source</span>
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git branch
+</span><span class='line'>      * <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now setup is complete. You can preview your blog using</p>
+
+<pre><code>    akash@desktop:$ rake preview
+</code></pre>
+
+<p>This command creates temporary server, listening on port 4000, goto browser and type <a href="localhost:4000">localhost:4000</a>.
+If you are satisfied with your work then do not wait to publish.</p>
+
+<figure class='code'><figcaption><span>First push to GitHub</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>akash@desktop:<span class="nv">$ </span>rake generate
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git add .
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git commit -m <span class="s2">&quot;some message&quot;</span>
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>git push origin <span class="nb">source</span>
+</span><span class='line'>akash@desktop:<span class="nv">$ </span>rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Wait for email from GitHub; as its your first push.</p>
+
+<p>Congratulations you have successfully deployed your blog on GitHub.</p>
 ]]></content>
   </entry>
   
