@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | I'maKash]]></title>
+  <link href="http://akash0x53.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://akash0x53.github.com/"/>
+  <updated>2012-12-19T11:47:57+05:30</updated>
+  <id>http://akash0x53.github.com/</id>
+  <author>
+    <name><![CDATA[Akash]]></name>
+    <email><![CDATA[akash321@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Basics of OctoBlog]]></title>
+    <link href="http://akash0x53.github.com/blog/2012/12/18/road-ahead-write-a-blog/"/>
+    <updated>2012-12-18T14:47:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2012/12/18/road-ahead-write-a-blog</id>
+    <content type="html"><![CDATA[<p>Okay... So its time to create a new blog using Octopress. After a lot of hardwork on deploying Octopress you could not stop yourself to write. So time to learn Octopress features.</p>
+
+<!--more-->
+
+
+<p>first of all, create a new post using
+<code>bash new post
+akash@desktop:$ rake new_post["post_name"]
+</code>
+This will create a directory <code>source/_post/</code> and a markdown file naming as
+<code>YY-MM-DD-blog_name.markdown</code> in "_post" directory. Reason for this convention is "permalink". It helps to create <a href="http://en.wikipedia.org/wiki/Permalink">permalink.</a> This syntax is human-readable and gives you idea of when was the particular post written &amp; name of the post.</p>
+
+<p>Open newly created markdown file using any editor like VI,emacs,gedit as your wish. You will find properties of post as</p>
+
+<pre><code>    ---
+    layout: post
+    title: "Basics of OctoBlog"
+    date: 2012-12-18 14:47
+    comments: true
+    categories: Octopress
+    ---
+</code></pre>
+
+<p>This is YAML front matter. As per jekyll, any file with YAML front matter will be processed as jekyll special file. Above texts are of this post. <code>layout, title, date, comments, categories</code> these are special variables.</br></p>
+
+<p><code>layout: post</code> specifies to use layout file <code>post.html</code> which reside in directory <code>source/_layout</code></br>
+"categories" variable defined the category of your post. You can have multiple categories in your blog like Networking,Programming,Social. If your post belong to "Social" category then simply set categories to Social. Posts belongs to same category will be grouped.</br></p>
+
+<p>From the next line to - - - you can start writing your blog.</p>
+
+<p>Commonly used markups while decorating blog<br>
+1. Excerpts: On your home page you wants to show only some content of post and then link to full post. You might have seen "Read more", "Continue", etc. links on blogs. These are Excerpts. It is simple in Octopress. Just add <code>&lt;!--more--&gt;</code> ( "more" enclosed in html comment).</br>
+2. <code>&lt;a href="some link"&gt; Text to display &lt;/a&gt;</code> HTML Anchor tag. No need to explain</br>
+3. to write in a box as above ( i dont know what is the term for it ), enclose text within 2 backticks as</br>
+`` your text ``</br>
+4. to include source code in your post</p>
+
+<pre><code>```[lang name] [title of source code]
+...your code
+...
+... 
+```(again ends with 3 backticks)
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress and GitHub]]></title>
+    <link href="http://akash0x53.github.com/blog/2012/12/16/octopress-and-github/"/>
+    <updated>2012-12-16T19:09:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2012/12/16/octopress-and-github</id>
+    <content type="html"><![CDATA[<p>Finally i managed to deploy Octopress on <a href="http://www.pages.github.com">GitHub (pages)</a> with custom theme. I added facebook profile link that wasn't provided by Octopress. Octopress is really easy,simple and beautiful.But I faced some problems while setting up Octopress.</br>So i thought of writing the first blog on "Deploying Octopress on GitHub".</p>
+
+<!--more-->
+
+
+<p>I assumed you have installed RVM and Ruby on your machine.
+</br>My environment: <code>RVM 1.17.3, Ruby 1.9.3p327, Ubuntu 11.10</code></p>
+
+<h4>Installing Octopress</h4>
+
+
+<p><code>bash prepare workspace
+akash@desktop:$ mkdir github_pages #create your project directory
+akash@desktop:$ cd github_pages
+akash@desktop:$ git clone https://github.com/imathis/octopress.git octopress #clone octopress repo into octopress directory
+akash@desktop:$ bundle install # more about bundler http://gembundler.com/
+</code></p>
+
+<p>Now install Octopress
+<code>bash install Octopress
+akash@desktop:$ rake install
+</code>
+This command install Octopress default theme. You can install third party themes for octopress. <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">List of third party themes</a></p>
+
+<h4>Deploying to GitHub</h4>
+
+
+<p>You must have a github repository with strict naming convention as <code>username.github.com</code>.
+After creating repository on GitHub, its time to configure rake for deploying blog.
+<code>bash rake setup
+akash@desktop:$ rake setup_github_pages
+</code>
+This will ask you for github repository details. You have to follow the convention as</p>
+
+<p><code>git@github.com:username/username.github.com</code>
+Note: do not add ".git" at the end.</p>
+
+<p>```bash Check for remote repository
+git remote -v</p>
+
+<h1>This was my output.</h1>
+
+<p>origin  git@github.com:akash0x53/akash0x53.github.com (fetch)
+origin  git@github.com:akash0x53/akash0x53.github.com (push)</p>
+
+<h1>If your output is</h1>
+
+<p>octopress   git://github.com/imathis/octopress.git (fetch)
+octopress   git://github.com/imathis/octopress.git (push)</p>
+
+<h1>then you need to add your repo using</h1>
+
+<p>akash@desktop:$ git add remote add origin git@github.com:username/username.github.com.git
+<code>
+To delete Octopress branch using
+</code>bash Deleting remote branch
+akash@desktop:$ git remote rm Octopress
+<code>
+To publish pages on GitHub rename your branch to ``source`` branch
+</code>bash rename branch
+akash@desktop:$ git branch</p>
+
+<pre><code>    * master
+</code></pre>
+
+<p>akash@desktop:$ git branch -m master source
+akash@desktop:$ git branch</p>
+
+<pre><code>    * source
+</code></pre>
+
+<p>```</p>
+
+<p>Now setup is complete. You can preview your blog using</p>
+
+<pre><code>    akash@desktop:$ rake preview
+</code></pre>
+
+<p>This command creates temporary server, listening on port 4000, goto browser and type <a href="localhost:4000">localhost:4000</a>.
+If you are satisfied with your work then do not wait to publish.</p>
+
+<p><code>bash First push to GitHub
+akash@desktop:$ rake generate
+akash@desktop:$ git add .
+akash@desktop:$ git commit -m "some message"
+akash@desktop:$ git push origin source
+akash@desktop:$ rake deploy
+</code>
+Wait for email from GitHub; as its your first push.</p>
+
+<p>Congratulations you have successfully deployed your blog on GitHub.</p>
+]]></content>
+  </entry>
+  
+</feed>
