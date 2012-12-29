@@ -13,6 +13,8 @@ Language: Python (version 2.7.3)
 External libraries: <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup 4</a>, <a href="http://www.pygtk.org/">PyGtk</a>   
 UI tool: <a href="http://glade.gnome.org/">Glade 3.8</a>  
 
+<a href="https://github.com/akash0x53/way2SMS/archive/master.zip">Download source code</a>
+
 GitHub repository <a href="https://github.com/akash0x53/way2SMS">here</a>
 
 These are snapshots of Way2SMS-Desktop App v1.0
