@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: segmentation | I'maKash]]></title>
+  <link href="http://akash0x53.github.com/blog/categories/segmentation/atom.xml" rel="self"/>
+  <link href="http://akash0x53.github.com/"/>
+  <updated>2013-04-29T23:15:13+05:30</updated>
+  <id>http://akash0x53.github.com/</id>
+  <author>
+    <name><![CDATA[Akash]]></name>
+    <email><![CDATA[akash0x53s@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[RGB Normalization]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/04/29/normalization/"/>
+    <updated>2013-04-29T20:16:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/04/29/normalization</id>
+    <content type="html"><![CDATA[<p>Segmentation is always a very important and basic task while detecting a particular object. For example, In <a href="http://www.pranavmistry.com/projects/sixthsense/images/thumb/sixthsense12.jpg">this</a> picture, Pranav Mistry wearing color markers on his fingers to track the motion of fingers and do some task according to movement of fingers.</p>
+
+<!--more-->
+
+
+<p>Is it sound easy? Yeah! but detecting an object is not an easy task. Light also play crucial role. For example, if you have unidirectional source of light then it creates shadow and different shades of colors on object as you can see in following picture.</p>
+
+<p><img src="/images/norm/norm.jpg" width="500"><br/>
+Intense light from right side of body whiten the right side of body. Detecting skin or Tshirt from this image is not possible as different shades of colors are there. Some part is highlighted and some in shadowed region. If we choose to detect blue T-shirt using RGB value that range varies from (10,80,200) to (10,70,230) (approximate values) then it will not detect the whole T-shirt. It will partially detect T-shirt and this is not what you want.</p>
+
+<p>So to reduce the effects of light, Normalization of color space is helpful. Normalization removes highlighted regions, shadows and make that object easier to detect.<br/>
+See the following image. Its free from highlighted region, shadow and objects are easily detectable now. For example, human skin, green curtain and Tshirt.
+<img src="/images/norm/norm2.jpg" width="500"></p>
+
+<h4>How to convert RGB to Normalized-RGB?</h4>
+
+<p>Now some mathematical work starts here, following equation convert a pixel to normalized pixel.<br/>
+<img src="/images/norm/eq.png" width="400"></p>
+
+<h5>Explaination:</h5>
+
+<p>let R,G,B are pixel values,<br/>
+to normalized the pixel, divide the individual color component with `total' and multiply by 255. Here 255 is scaling factor. You can use any other scaling factor.As this image is 8 bit scaling value is 255.</p>
+
+<p>let f(10,10)=(100,200,150)<br/>
+R=100,<br/>
+G=200,<br/>
+B=150</p>
+
+<p>then,  total=(R+G+B)=450</p>
+
+<p>now,
+ R'=(100/450)x255=0.22x255=56.66<br/>
+ G'=(200/450)x255=0.44x255=113.33<br/>
+ B'=(150/450)x255=0.33x255=85<br/>
+then new pixel value is (56,113,85) respective to RGB.</p>
+
+<h6>Why scaling factor is required?</h6>
+
+<p>In previous example, division results in floating point value that is less than 1.00. Division value 0.22 which then rounded of to 0 that means black color. To avoid this, it must be multiplied by some value.</p>
+
+<h4>Python-OpenCV implementation</h4>
+
+<p>This function accepts 8bit image that captured by using OpenCV-python bindings.</p>
+
+<p>```
+def normalized(self,down):</p>
+
+<pre><code>    b=rgb[:,:,0]
+    g=rgb[:,:,1]
+    r=rgb[:,:,2]
+
+    sum=b+g+r
+
+    self.norm[:,:,0]=b/sum*255.0
+    self.norm[:,:,1]=g/sum*255.0
+    self.norm[:,:,2]=r/sum*255.0
+
+    self.norm_rgb=cv2.convertScaleAbs(self.norm)
+    return self.norm_rgb
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>
