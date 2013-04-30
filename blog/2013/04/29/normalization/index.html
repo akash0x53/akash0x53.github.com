@@ -203,20 +203,26 @@ then new pixel value is (56,113,85) respective to RGB.</p>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def normalized(self,down):
-</span><span class='line'>               
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def normalized(down):
+</span><span class='line'>
+</span><span class='line'>  norm=np.zeros((600,800,3),np.float32)
+</span><span class='line'>  norm_rgb=np.zeros((600,800,3),np.uint8)
+</span><span class='line'>              
 </span><span class='line'>        b=rgb[:,:,0]
 </span><span class='line'>        g=rgb[:,:,1]
 </span><span class='line'>        r=rgb[:,:,2]
 </span><span class='line'>        
 </span><span class='line'>        sum=b+g+r
 </span><span class='line'>        
-</span><span class='line'>        self.norm[:,:,0]=b/sum*255.0
-</span><span class='line'>        self.norm[:,:,1]=g/sum*255.0
-</span><span class='line'>        self.norm[:,:,2]=r/sum*255.0
+</span><span class='line'>        norm[:,:,0]=b/sum*255.0
+</span><span class='line'>        norm[:,:,1]=g/sum*255.0
+</span><span class='line'>        norm[:,:,2]=r/sum*255.0
 </span><span class='line'>        
-</span><span class='line'>        self.norm_rgb=cv2.convertScaleAbs(self.norm)
-</span><span class='line'>        return self.norm_rgb</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>        norm_rgb=cv2.convertScaleAbs(norm)
+</span><span class='line'>        return norm_rgb</span></code></pre></td></tr></table></div></figure>
 
 
 

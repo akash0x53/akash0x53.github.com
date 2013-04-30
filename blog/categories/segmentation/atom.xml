@@ -4,7 +4,7 @@
   <title><![CDATA[Category: segmentation | I'maKash]]></title>
   <link href="http://akash0x53.github.com/blog/categories/segmentation/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-04-29T23:17:46+05:30</updated>
+  <updated>2013-04-30T10:46:44+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -64,20 +64,23 @@ then new pixel value is (56,113,85) respective to RGB.</p>
 <p>This function accepts 8bit image that captured by using OpenCV-python bindings.</p>
 
 <p>```
-def normalized(self,down):</p>
+def normalized(down):</p>
 
-<pre><code>    b=rgb[:,:,0]
+<pre><code>norm=np.zeros((600,800,3),np.float32)
+norm_rgb=np.zeros((600,800,3),np.uint8)
+
+    b=rgb[:,:,0]
     g=rgb[:,:,1]
     r=rgb[:,:,2]
 
     sum=b+g+r
 
-    self.norm[:,:,0]=b/sum*255.0
-    self.norm[:,:,1]=g/sum*255.0
-    self.norm[:,:,2]=r/sum*255.0
+    norm[:,:,0]=b/sum*255.0
+    norm[:,:,1]=g/sum*255.0
+    norm[:,:,2]=r/sum*255.0
 
-    self.norm_rgb=cv2.convertScaleAbs(self.norm)
-    return self.norm_rgb
+    norm_rgb=cv2.convertScaleAbs(norm)
+    return norm_rgb
 </code></pre>
 
 <p>```</p>
