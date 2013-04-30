@@ -4,7 +4,7 @@
   <title><![CDATA[Category: segmentation | I'maKash]]></title>
   <link href="http://akash0x53.github.com/blog/categories/segmentation/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-04-30T10:46:44+05:30</updated>
+  <updated>2013-04-30T10:48:13+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -66,8 +66,8 @@ then new pixel value is (56,113,85) respective to RGB.</p>
 <p>```
 def normalized(down):</p>
 
-<pre><code>norm=np.zeros((600,800,3),np.float32)
-norm_rgb=np.zeros((600,800,3),np.uint8)
+<pre><code>    norm=np.zeros((600,800,3),np.float32)
+    norm_rgb=np.zeros((600,800,3),np.uint8)
 
     b=rgb[:,:,0]
     g=rgb[:,:,1]
