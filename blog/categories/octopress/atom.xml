@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | I'maKash]]></title>
   <link href="http://akash0x53.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-04-30T10:48:13+05:30</updated>
+  <updated>2013-05-09T01:14:47+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -69,7 +69,7 @@ This will create a directory <code>source/_post/</code> and a markdown file nami
     <link href="http://akash0x53.github.com/blog/2012/12/16/octopress-and-github/"/>
     <updated>2012-12-16T19:09:00+05:30</updated>
     <id>http://akash0x53.github.com/blog/2012/12/16/octopress-and-github</id>
-    <content type="html"><![CDATA[<p>Finally i managed to deploy Octopress on <a href="http://www.pages.github.com">GitHub (pages)</a> with custom theme. I added facebook profile link that wasn't provided by Octopress. Octopress is really easy,simple and beautiful.But I faced some problems while setting up Octopress.</br>So i thought of writing the first blog on "Deploying Octopress on GitHub".</p>
+    <content type="html"><![CDATA[<p>Finally i managed to deploy Octopress on <a href="pages.github.com">GitHub (pages)</a> with custom theme. I added facebook profile link that wasn't provided by Octopress. Octopress is really easy,simple and beautiful.But I faced some problems while setting up Octopress.</br>So i thought of writing the first blog on "Deploying Octopress on GitHub".</p>
 
 <!--more-->
 
