@@ -5,7 +5,7 @@ date: 2012-12-16 19:09
 comments: true
 categories: Octopress
 ---
-Finally i managed to deploy Octopress on <a href="http://www.pages.github.com">GitHub (pages)</a> with custom theme. I added facebook profile link that wasn't provided by Octopress. Octopress is really easy,simple and beautiful.But I faced some problems while setting up Octopress.</br>So i thought of writing the first blog on "Deploying Octopress on GitHub".
+Finally i managed to deploy Octopress on <a href="http://pages.github.com">GitHub (pages)</a> with custom theme. I added facebook profile link that wasn't provided by Octopress. Octopress is really easy,simple and beautiful.But I faced some problems while setting up Octopress.</br>So i thought of writing the first blog on "Deploying Octopress on GitHub".
 <!--more-->
 
 I assumed you have installed RVM and Ruby on your machine.

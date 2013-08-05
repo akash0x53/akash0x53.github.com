@@ -8,6 +8,11 @@ categories: Python
 This is my first application that i coded in Python and designed GUI using Glade+Gtk.</br>
 Millions of people use way2sms site for sending free SMS across india. There is no official desktop application provided by way2sms. So i create this app that gives you good GUI,faster speed,same contact list as you have on your way2sms account.  
 <!--more-->
+
+<h3>Why I wrote this app? </h3>  
+Who don't like to Texting friends? 
+
+
 Platform: GNU/Debain based Linux ( Ubuntu 11.10)  
 Language: Python (version 2.7.3)  
 External libraries: <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup 4</a>, <a href="http://www.pygtk.org/">PyGtk</a>   
