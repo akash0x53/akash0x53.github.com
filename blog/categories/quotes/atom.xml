@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Quotes | I'maKash]]></title>
+  <link href="http://akash0x53.github.com/blog/categories/quotes/atom.xml" rel="self"/>
+  <link href="http://akash0x53.github.com/"/>
+  <updated>2013-08-07T00:38:18+05:30</updated>
+  <id>http://akash0x53.github.com/</id>
+  <author>
+    <name><![CDATA[Akash]]></name>
+    <email><![CDATA[akash0x53s@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Words of Wisdom]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/08/07/daily-quotes/"/>
+    <updated>2013-08-07T00:22:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/08/07/daily-quotes</id>
+    <content type="html"><![CDATA[<p>My random thoughts and some famous persons' Quotes.</p>
+
+<!--more-->
+
+
+<p><blockquote><p>Don't be a Slave of technologies, slave technologies.</p><footer><strong>@akash0x53</strong> <cite><a href='https://twitter.com/akash0x53/status/308226968455872514'>twitter.com/akash0x53/status/&hellip;</a></cite></footer></blockquote></p>
+
+<p>Date: 7th August,2013. 00:24 IST<br/>
+<blockquote><p>Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.</p><footer><strong>Marilyn Monroe</strong> <cite></cite></footer></blockquote></p>
+
+<p><blockquote><p>Faith-Acceptance of which we imagine to be true, that which we can not prove.</p><footer><strong>Dan Brown</strong> <cite>The Da Vinci Code</cite></footer></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>
