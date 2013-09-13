@@ -4,7 +4,7 @@
   <title><![CDATA[I'maKash]]></title>
   <link href="http://akash0x53.github.com/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-08-18T11:26:23+05:30</updated>
+  <updated>2013-09-13T21:40:51+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[programmers day]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/09/13/programmers-day/"/>
+    <updated>2013-09-13T21:32:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/09/13/programmers-day</id>
+    <content type="html"><![CDATA[<p>Today is &#8220;International Programmers day&#8221;. :-o how?? <!--more--></p>
+
+<p>It believes that 256<sup>th</sup> day of Gregorian calender celebrated as &#8220;International Programmers day&#8221;. Now why 256th days? It&#8217;s simple 2<sup>8=256.</sup> 2<sup>8</sup> which have significance in computers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Calender]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/09/10/calender/"/>
+    <updated>2013-09-10T19:23:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/09/10/calender</id>
+    <content type="html"><![CDATA[<p>Calender remains an indivisible part of human life since the beginning. We see calender daily or weekly (monthly, yearly are exceptional) but less people thought about the origin of calenders, or how were the calenders in ancient world? How did we get the modern calender? What was between ancient and modern calenders?</p>
+
+<!--more-->
+
+
+<h3>Lunar calender and solar calender</h3>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Words of Wisdom]]></title>
