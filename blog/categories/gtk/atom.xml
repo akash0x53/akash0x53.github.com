@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gtk | I'maKash]]></title>
+  <link href="http://akash0x53.github.com/blog/categories/gtk/atom.xml" rel="self"/>
+  <link href="http://akash0x53.github.com/"/>
+  <updated>2013-09-16T14:24:57+05:30</updated>
+  <id>http://akash0x53.github.com/</id>
+  <author>
+    <name><![CDATA[Akash]]></name>
+    <email><![CDATA[akash0x53s@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[CSS+Gtk3]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/"/>
+    <updated>2013-09-16T14:00:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3</id>
+    <content type="html"><![CDATA[<p>Remix GTK3 Apps with the magical CSS  <!--more--></p>
+
+<p>I assumed you know Gtk2 and write Gtk apps in any language, I show you how to  theme your GTK3 apps. Please note CSS support is available for Gtk3 and not for Gtk2.</p>
+
+<p>First of all create a window which have some widget on it. In my case I add GtkLabel.<br/>
+```python A Example Window</p>
+
+<p>import gi.repository Gtk, Gdk</p>
+
+<p>win=Gtk.Window()
+lbl=Gtk.Label("Hello")
+lbl.set_name('mylabel') #use as CSS selector i.e #mylabel</p>
+
+<p>win.set_size_request(200,100)
+win.connect('delete-event',close)
+win.add(lbl)</p>
+
+<p>win.show_all()
+Gtk.main()</p>
+
+<p>def close(event,data):</p>
+
+<pre><code>Gtk.main_quit()
+</code></pre>
+
+<p>```</p>
+
+<p>Okay, so we done with GTk app right? But where is CSS? You have to add CSS using <code>GtkStyleContext</code> and <code>GtkCssProvider</code> these classes allows to import <code>css</code> file or embed css code in app. So first create a css that apply color to label.</p>
+
+<p>```css style.css</p>
+
+<h1>mylabel{</h1>
+
+<pre><code>color: #FF0000;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Instead of <code>mylabel</code> you can use widget name i.e <code>GtkLabel</code>. Now its time to attach CSS to GTK apps.</p>
+
+<p>```python adding Style to Gtk</p>
+
+<p>style=Gtk.CssProvider()
+style.load_from_path('./style.css')
+Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),style,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+```</p>
+
+<p>and thats it. You done it.</p>
+
+<h3>Result</h3>
+
+<p><img src="/images/css_gtk/gtk-css.png" width="200"></p>
+]]></content>
+  </entry>
+  
+</feed>

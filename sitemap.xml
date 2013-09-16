@@ -2,50 +2,58 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://akash0x53.github.com/blog/2012/12/16/octopress-and-github/</loc>
-        <lastmod>2013-05-09T01:15:45+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2012/12/18/road-ahead-write-a-blog/</loc>
-        <lastmod>2012-12-19T19:53:07+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2012/12/19/unpacking-ubislate-7ci/</loc>
-        <lastmod>2012-12-19T23:19:59+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2012/12/29/send-sms-from-your-desktop/</loc>
-        <lastmod>2013-01-08T21:32:05+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2013/01/17/calculate-histogram-using-opencv/</loc>
-        <lastmod>2013-01-17T18:02:17+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2013/04/26/latex/</loc>
-        <lastmod>2013-04-28T22:24:33+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2013/04/29/normalization/</loc>
-        <lastmod>2013-04-30T10:48:06+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://akash0x53.github.com/blog/2013/08/05/notif-me/</loc>
+        <lastmod>2013-09-16T14:04:15+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2013/08/05/notify-me/</loc>
-        <lastmod>2013-08-05T12:26:51+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2013/08/07/daily-quotes/</loc>
-        <lastmod>2013-08-07T23:03:02+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/2013/09/13/programmers-day/</loc>
-        <lastmod>2013-09-13T21:39:32+05:30</lastmod>
+        <lastmod>2013-09-16T13:53:56+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/</loc>
+        <lastmod>2013-09-16T14:22:28+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/</loc>
-        <lastmod>2013-09-13T21:39:32+05:30</lastmod>
+        <lastmod>2013-09-16T14:22:28+05:30</lastmod>
     </url>
     <url>
         <loc>http://akash0x53.github.com/blog/archives/</loc>
-        <lastmod>2013-09-13T21:39:32+05:30</lastmod>
+        <lastmod>2013-09-16T14:22:28+05:30</lastmod>
     </url>
 </urlset>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | I'maKash]]></title>
   <link href="http://akash0x53.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-09-13T21:43:34+05:30</updated>
+  <updated>2013-09-16T14:24:57+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CSS+Gtk3]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/"/>
+    <updated>2013-09-16T14:00:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3</id>
+    <content type="html"><![CDATA[<p>Remix GTK3 Apps with the magical CSS  <!--more--></p>
+
+<p>I assumed you know Gtk2 and write Gtk apps in any language, I show you how to  theme your GTK3 apps. Please note CSS support is available for Gtk3 and not for Gtk2.</p>
+
+<p>First of all create a window which have some widget on it. In my case I add GtkLabel.<br/>
+```python A Example Window</p>
+
+<p>import gi.repository Gtk, Gdk</p>
+
+<p>win=Gtk.Window()
+lbl=Gtk.Label("Hello")
+lbl.set_name('mylabel') #use as CSS selector i.e #mylabel</p>
+
+<p>win.set_size_request(200,100)
+win.connect('delete-event',close)
+win.add(lbl)</p>
+
+<p>win.show_all()
+Gtk.main()</p>
+
+<p>def close(event,data):</p>
+
+<pre><code>Gtk.main_quit()
+</code></pre>
+
+<p>```</p>
+
+<p>Okay, so we done with GTk app right? But where is CSS? You have to add CSS using <code>GtkStyleContext</code> and <code>GtkCssProvider</code> these classes allows to import <code>css</code> file or embed css code in app. So first create a css that apply color to label.</p>
+
+<p>```css style.css</p>
+
+<h1>mylabel{</h1>
+
+<pre><code>color: #FF0000;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Instead of <code>mylabel</code> you can use widget name i.e <code>GtkLabel</code>. Now its time to attach CSS to GTK apps.</p>
+
+<p>```python adding Style to Gtk</p>
+
+<p>style=Gtk.CssProvider()
+style.load_from_path('./style.css')
+Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),style,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+```</p>
+
+<p>and thats it. You done it.</p>
+
+<h3>Result</h3>
+
+<p><img src="/images/css_gtk/gtk-css.png" width="200"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[notify-me]]></title>
@@ -23,6 +84,21 @@
 <p>I was frequently visiting university website for result. I belonged to University of Pune which has no fixed schedule for declaration of result at all. But i was tired of this! Also website doesn't have RSS feed facility. So I decided to write a small app that could periodically extract the webpage, check for changes any made, if yes then it send me a SMS via <a href="http://www.fullonsms.com">FullonSMS</a>. ;)</p>
 
 <p>I didn't want to waste my electricity and bandwidth for this app, so i deployed it on <a href="http://www.heroku.com">Heroku.com</a>, and it worked. "notify-me" had given notification at 00:30AM!</p>
+
+<p>This application is at the initial stages. You can fork it from <a href="https://github.com/akash0x53/notify-me">here</a>. Pull requests are most welcome.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[notify-me]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/08/05/notif-me/"/>
+    <updated>2013-08-05T11:38:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/08/05/notif-me</id>
+    <content type="html"><![CDATA[<p>"Notify-Me" a simple notifier! <!--more--></p>
+
+<p>I was frequently visiting university website for result. I belonged to University of Pune which has no fixed schedule for declaration of result at all. But i was tired of this! Also website doesn't have RSS feed facility. So I decided to write a small app that could periodically extract the webpage, check for changes any made, if yes then it send me a SMS via <a href="http://www.fullonsms.com">FullonSMS</a>. ;)</p>
+
+<p>I didn't want to waste my electricity and bandwidth for this app, so i deployed it on <a href="http://www.heroku.com">Heroku.com</a>, and it worked. "notify-me" has given notification at 00:30AM!</p>
 
 <p>This application is at the initial stages. You can fork it from <a href="https://github.com/akash0x53/notify-me">here</a>. Pull requests are most welcome.</p>
 ]]></content>

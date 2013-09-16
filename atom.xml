@@ -4,7 +4,7 @@
   <title><![CDATA[I'maKash]]></title>
   <link href="http://akash0x53.github.com/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-09-13T21:43:34+05:30</updated>
+  <updated>2013-09-16T14:24:57+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CSS+Gtk3]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/"/>
+    <updated>2013-09-16T14:00:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3</id>
+    <content type="html"><![CDATA[<p>Remix GTK3 Apps with the magical CSS  <!--more--></p>
+
+<p>I assumed you know Gtk2 and write Gtk apps in any language, I show you how to  theme your GTK3 apps. Please note CSS support is available for Gtk3 and not for Gtk2.</p>
+
+<p>First of all create a window which have some widget on it. In my case I add GtkLabel.</p>
+
+<figure class='code'><figcaption><span>A Example Window</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">gi.repository</span> <span class="nn">Gtk</span><span class="o">,</span> <span class="nn">Gdk</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
+</span><span class='line'><span class="n">lbl</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">lbl</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s">&#39;mylabel&#39;</span><span class="p">)</span> <span class="c">#use as CSS selector i.e #mylabel</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">set_size_request</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;delete-event&#39;</span><span class="p">,</span><span class="n">close</span><span class="p">)</span>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+</span><span class='line'><span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Okay, so we done with GTk app right? But where is CSS? You have to add CSS using <code>GtkStyleContext</code> and <code>GtkCssProvider</code> these classes allows to import <code>css</code> file or embed css code in app. So first create a css that apply color to label.</p>
+
+<figure class='code'><figcaption><span>style.css</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#mylabel</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">color</span><span class="o">:</span> <span class="m">#FF0000</span><span class="p">;</span>
+</span><span class='line'>  
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Instead of <code>mylabel</code> you can use widget name i.e <code>GtkLabel</code>. Now its time to attach CSS to GTK apps.</p>
+
+<figure class='code'><figcaption><span>adding Style to Gtk</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">style</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">CssProvider</span><span class="p">()</span>
+</span><span class='line'><span class="n">style</span><span class="o">.</span><span class="n">load_from_path</span><span class="p">(</span><span class="s">&#39;./style.css&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">Gtk</span><span class="o">.</span><span class="n">StyleContext</span><span class="o">.</span><span class="n">add_provider_for_screen</span><span class="p">(</span><span class="n">Gdk</span><span class="o">.</span><span class="n">Screen</span><span class="o">.</span><span class="n">get_default</span><span class="p">(),</span><span class="n">style</span><span class="p">,</span><span class="n">Gtk</span><span class="o">.</span><span class="n">STYLE_PROVIDER_PRIORITY_APPLICATION</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>and thats it. You done it.</p>
+
+<h3>Result</h3>
+
+<p><img src="http://akash0x53.github.com/images/css_gtk/gtk-css.png" width="200"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[programmers day]]></title>
@@ -73,6 +155,21 @@
 <p>I was frequently visiting university website for result. I belonged to University of Pune which has no fixed schedule for declaration of result at all. But i was tired of this! Also website doesn&#8217;t have RSS feed facility. So I decided to write a small app that could periodically extract the webpage, check for changes any made, if yes then it send me a SMS via <a href="http://www.fullonsms.com">FullonSMS</a>. ;)</p>
 
 <p>I didn&#8217;t want to waste my electricity and bandwidth for this app, so i deployed it on <a href="http://www.heroku.com">Heroku.com</a>, and it worked. &#8220;notify-me&#8221; had given notification at 00:30AM!</p>
+
+<p>This application is at the initial stages. You can fork it from <a href="https://github.com/akash0x53/notify-me">here</a>. Pull requests are most welcome.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[notify-me]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/08/05/notif-me/"/>
+    <updated>2013-08-05T11:38:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/08/05/notif-me</id>
+    <content type="html"><![CDATA[<p>&#8220;Notify-Me&#8221; a simple notifier! <!--more--></p>
+
+<p>I was frequently visiting university website for result. I belonged to University of Pune which has no fixed schedule for declaration of result at all. But i was tired of this! Also website doesn&#8217;t have RSS feed facility. So I decided to write a small app that could periodically extract the webpage, check for changes any made, if yes then it send me a SMS via <a href="http://www.fullonsms.com">FullonSMS</a>. ;)</p>
+
+<p>I didn&#8217;t want to waste my electricity and bandwidth for this app, so i deployed it on <a href="http://www.heroku.com">Heroku.com</a>, and it worked. &#8220;notify-me&#8221; has given notification at 00:30AM!</p>
 
 <p>This application is at the initial stages. You can fork it from <a href="https://github.com/akash0x53/notify-me">here</a>. Pull requests are most welcome.</p>
 ]]></content>

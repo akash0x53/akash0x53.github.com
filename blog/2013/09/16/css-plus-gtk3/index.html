@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>notify-me - I'maKash</title>
+  <title>CSS+Gtk3 - I'maKash</title>
   <meta name="author" content="Akash">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content=" &#8220;Notify-Me&#8221; a simple notifier! ">
+  <meta name="description" content=" Remix GTK3 Apps with the magical CSS ">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,20 +21,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://akash0x53.github.com/blog/2013/08/05/notify-me/">
+  <link rel="canonical" href="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="I'maKash" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="I'maKash" />
-  <meta name="og:title" content="notify-me" />
-  <meta name="og:description" content=" &#8220;Notify-Me&#8221; a simple notifier! " />
-  <meta name="og:url" content="http://akash0x53.github.com/blog/2013/08/05/notify-me/"/>
-  <meta name="url" content="http://akash0x53.github.com/blog/2013/08/05/notify-me/">
+  <meta name="og:title" content="CSS+Gtk3" />
+  <meta name="og:description" content=" Remix GTK3 Apps with the magical CSS " />
+  <meta name="og:url" content="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/"/>
+  <meta name="url" content="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/">
   
-  <meta name="subject" content="projectspython"/>
-  <meta name="category" content="projectspython"/>
+  <meta name="subject" content="gtkpython"/>
+  <meta name="category" content="gtkpython"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -102,7 +102,7 @@
 
   <header>
     
-      <h1 class="entry-title">Notify-me</h1>
+      <h1 class="entry-title">CSS+Gtk3</h1>
     
     
       <p class="meta">
@@ -127,13 +127,13 @@
   
 
 
-<time datetime="2013-08-05T11:38:00+05:30" pubdate data-updated="true">Aug 5<span>th</span>, 2013</time> - 
+<time datetime="2013-09-16T14:00:00+05:30" pubdate data-updated="true">Sep 16<span>th</span>, 2013</time> - 
         
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/projects/'>projects</a>, <a class='category' href='/blog/categories/python/'>python</a>
+    <a class='category' href='/blog/categories/gtk/'>gtk</a>, <a class='category' href='/blog/categories/python/'>python</a>
   
 </span>
 
@@ -144,13 +144,80 @@ posted in
   </header>
 
 
-  <div class="entry-content"><p>&#8220;Notify-Me&#8221; a simple notifier! <!--more--></p>
+  <div class="entry-content"><p>Remix GTK3 Apps with the magical CSS  <!--more--></p>
 
-<p>I was frequently visiting university website for result. I belonged to University of Pune which has no fixed schedule for declaration of result at all. But i was tired of this! Also website doesn&#8217;t have RSS feed facility. So I decided to write a small app that could periodically extract the webpage, check for changes any made, if yes then it send me a SMS via <a href="http://www.fullonsms.com">FullonSMS</a>. ;)</p>
+<p>I assumed you know Gtk2 and write Gtk apps in any language, I show you how to  theme your GTK3 apps. Please note CSS support is available for Gtk3 and not for Gtk2.</p>
 
-<p>I didn&#8217;t want to waste my electricity and bandwidth for this app, so i deployed it on <a href="http://www.heroku.com">Heroku.com</a>, and it worked. &#8220;notify-me&#8221; had given notification at 00:30AM!</p>
+<p>First of all create a window which have some widget on it. In my case I add GtkLabel.</p>
 
-<p>This application is at the initial stages. You can fork it from <a href="https://github.com/akash0x53/notify-me">here</a>. Pull requests are most welcome.</p>
+<figure class='code'><figcaption><span>A Example Window</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">gi.repository</span> <span class="nn">Gtk</span><span class="o">,</span> <span class="nn">Gdk</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
+</span><span class='line'><span class="n">lbl</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">lbl</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s">&#39;mylabel&#39;</span><span class="p">)</span> <span class="c">#use as CSS selector i.e #mylabel</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">set_size_request</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;delete-event&#39;</span><span class="p">,</span><span class="n">close</span><span class="p">)</span>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+</span><span class='line'><span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Okay, so we done with GTk app right? But where is CSS? You have to add CSS using <code>GtkStyleContext</code> and <code>GtkCssProvider</code> these classes allows to import <code>css</code> file or embed css code in app. So first create a css that apply color to label.</p>
+
+<figure class='code'><figcaption><span>style.css</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#mylabel</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">color</span><span class="o">:</span> <span class="m">#FF0000</span><span class="p">;</span>
+</span><span class='line'>  
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Instead of <code>mylabel</code> you can use widget name i.e <code>GtkLabel</code>. Now its time to attach CSS to GTK apps.</p>
+
+<figure class='code'><figcaption><span>adding Style to Gtk</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">style</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">CssProvider</span><span class="p">()</span>
+</span><span class='line'><span class="n">style</span><span class="o">.</span><span class="n">load_from_path</span><span class="p">(</span><span class="s">&#39;./style.css&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">Gtk</span><span class="o">.</span><span class="n">StyleContext</span><span class="o">.</span><span class="n">add_provider_for_screen</span><span class="p">(</span><span class="n">Gdk</span><span class="o">.</span><span class="n">Screen</span><span class="o">.</span><span class="n">get_default</span><span class="p">(),</span><span class="n">style</span><span class="p">,</span><span class="n">Gtk</span><span class="o">.</span><span class="n">STYLE_PROVIDER_PRIORITY_APPLICATION</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>and thats it. You done it.</p>
+
+<h3>Result</h3>
+
+<p><img src="/images/css_gtk/gtk-css.png" width="200"></p>
 </div>
 
 
@@ -177,23 +244,21 @@ posted in
   
 
 
-<time datetime="2013-08-05T11:38:00+05:30" pubdate data-updated="true">Aug 5<span>th</span>, 2013</time>
+<time datetime="2013-09-16T14:00:00+05:30" pubdate data-updated="true">Sep 16<span>th</span>, 2013</time>
       
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/projects/'>projects</a>, <a class='category' href='/blog/categories/python/'>python</a>
+    <a class='category' href='/blog/categories/gtk/'>gtk</a>, <a class='category' href='/blog/categories/python/'>python</a>
   
 </span>
 
 
     </p>
     
-      <a class="pull-left" href="/blog/2013/08/05/notif-me/" title="Previous Post: notify-me">&laquo; notify-me</a>
+      <a class="pull-left" href="/blog/2013/09/13/programmers-day/" title="Previous Post: programmers day">&laquo; programmers day</a>
     
-    
-      <a class="pull-right" href="/blog/2013/08/07/daily-quotes/" title="Next Post: Words of Wisdom">Words of Wisdom &raquo;</a>
     
   </footer>
 
@@ -316,8 +381,8 @@ posted in
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://akash0x53.github.com/blog/2013/08/05/notify-me/';
-        var disqus_url = 'http://akash0x53.github.com/blog/2013/08/05/notify-me/';
+        var disqus_identifier = 'http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/';
+        var disqus_url = 'http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/';
         var disqus_script = 'embed.js';
       
     (function () {
