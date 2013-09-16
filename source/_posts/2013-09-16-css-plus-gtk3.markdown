@@ -10,10 +10,10 @@ Remix GTK3 Apps with the magical CSS  <!--more-->
 
 I assumed you know Gtk2 and write Gtk apps in any language, I show you how to  theme your GTK3 apps. Please note CSS support is available for Gtk3 and not for Gtk2.  
 
-First of all create a window which have some widget on it. 
-``` Python A Example Window
+First of all create a window which have some widget on it. In my case I add GtkLabel.  
+```python A Example Window
 
-import gi.repository Gtk
+import gi.repository Gtk, Gdk
 
 win=Gtk.Window()
 lbl=Gtk.Label("Hello")
@@ -31,12 +31,26 @@ def close(event,data):
 	Gtk.main_quit()
 ```
 
-Okay, so we done with GTk app right? But where is CSS? You have to add CSS using ``GtkStyleContext`` and ``GtkStyleProvider`` these classes allows to import ``css`` file or embed css code in app. So first create a css that apply color to label.
+Okay, so we done with GTk app right? But where is CSS? You have to add CSS using ``GtkStyleContext`` and ``GtkCssProvider`` these classes allows to import ``css`` file or embed css code in app. So first create a css that apply color to label.
 
-```css Example CSS
+```css style.css
 
 #mylabel{
 	color: #FF0000;
-	background-color: #000000;
+	
 }
-```
+``` 
+
+Instead of ``mylabel`` you can use widget name i.e ``GtkLabel``. Now its time to attach CSS to GTK apps.
+
+```python adding Style to Gtk
+
+style=Gtk.CssProvider()
+style.load_from_path('./style.css')
+Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),style,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+```  
+
+and thats it. You done it. 
+
+###Result  
+{% img /images/css_gtk/gtk-css.png 200 %}
