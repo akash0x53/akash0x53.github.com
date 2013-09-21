@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: project | I'maKash]]></title>
+  <link href="http://akash0x53.github.com/blog/categories/project/atom.xml" rel="self"/>
+  <link href="http://akash0x53.github.com/"/>
+  <updated>2013-09-22T01:06:40+05:30</updated>
+  <id>http://akash0x53.github.com/</id>
+  <author>
+    <name><![CDATA[Akash]]></name>
+    <email><![CDATA[akash0x53s@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Slise]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/09/22/slise/"/>
+    <updated>2013-09-22T00:26:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/09/22/slise</id>
+    <content type="html"><![CDATA[<h4>SLISE = Simple Local Image Search Engine <!--more--></h4>
+
+<p><blockquote><p>Simple image searching tool, search images based on image histogram and other features of image.</p></blockquote></p>
+
+<h3>Dependencies</h3>
+
+<ul>
+<li>Python 2.7</li>
+<li>OpenCV 2.4.3 (or OpenCV 2.4.x)</li>
+<li>Gtk3 for Python</li>
+<li>Glade 3.18</li>
+<li>numpy 1.6.2</li>
+</ul>
+
+
+<h3>Screen-shots/How to use?</h3>
+
+<p><img src="/images/slise/1.png" width="400">
+<img src="/images/slise/2.png" width="400"></p>
+
+<p><a href="https://github.com/akash0x53/slise">Download and contribute</a>. Suggestions are welcome.</p>
+]]></content>
+  </entry>
+  
+</feed>

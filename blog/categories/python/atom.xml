@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: python | I'maKash]]></title>
+  <title><![CDATA[Category: Python | I'maKash]]></title>
   <link href="http://akash0x53.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://akash0x53.github.com/"/>
-  <updated>2013-09-22T00:58:13+05:30</updated>
+  <updated>2013-09-22T01:06:40+05:30</updated>
   <id>http://akash0x53.github.com/</id>
   <author>
     <name><![CDATA[Akash]]></name>
@@ -14,78 +14,159 @@
 
   
   <entry>
-    <title type="html"><![CDATA[CSS+Gtk3]]></title>
-    <link href="http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3/"/>
-    <updated>2013-09-16T14:00:00+05:30</updated>
-    <id>http://akash0x53.github.com/blog/2013/09/16/css-plus-gtk3</id>
-    <content type="html"><![CDATA[<p>Remix GTK3 Apps with the magical CSS  <!--more--></p>
+    <title type="html"><![CDATA[Plot Histogram using OpenCV]]></title>
+    <link href="http://akash0x53.github.com/blog/2013/01/17/calculate-histogram-using-opencv/"/>
+    <updated>2013-01-17T17:34:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2013/01/17/calculate-histogram-using-opencv</id>
+    <content type="html"><![CDATA[<p>Histogram is a handy way of representing whatever it is that you have learned from image. Histogram of a image can be used to check whether image is too bright or too dark or contrast.</p>
 
-<p>I assumed you know Gtk2 and write Gtk apps in any language, I show you how to  theme your GTK3 apps. Please note CSS support is available for Gtk3 and not for Gtk2.</p>
+<!--more-->
 
-<p>First of all create a window which have some widget on it. In my case I add GtkLabel.<br/>
-```python A Example Window</p>
 
-<p>import gi.repository Gtk, Gdk</p>
 
-<p>win=Gtk.Window()
-lbl=Gtk.Label("Hello")
-lbl.set_name('mylabel') #use as CSS selector i.e #mylabel</p>
 
-<p>win.set_size_request(200,100)
-win.connect('delete-event',close)
-win.add(lbl)</p>
+<h4>Plot Histogram</h4>
 
-<p>win.show_all()
-Gtk.main()</p>
 
-<p>def close(event,data):</p>
+<p></p>
 
-<pre><code>Gtk.main_quit()
+<p>```python Histogram.py
+from numpy.ma.core import ceil<br/>
+import threading<br/>
+import time<br/>
+from cv2 import cv<br/>
+import cv</p>
+
+<p>class Histogram:</p>
+
+<pre><code>def __init__(self,inp):
+    #temporary file
+
+    if(inp==None):
+        self.img=cv.LoadImage("backimg.jpeg") #temporary image
+    else:
+        self.img=inp #input from camera
+
+    cv.CvtColor(self.img,self.img,cv.CV_BGR2HSV)
+
+#create temporary images to store Hue,Saturation, value planes
+    self.planeR=cv.CreateImage(cv.GetSize(self.img),8,1)
+    self.planeG=cv.CreateImage(cv.GetSize(self.img),8,1)
+    self.planeB=cv.CreateImage(cv.GetSize(self.img),8,1)
+
+    hranges=[[0,180]] #180 for Hue
+    self.hist=cv.CreateHist([30],cv.CV_HIST_ARRAY,hranges,1)
+
+#another IplImage for drawing graph
+self.graph=cv.CreateImage((300,200),8,3)
+    cv.Zero(self.graph)
+    cv.PutText(self.graph,"Histogram: RGB",(10,20),cv.InitFont(cv.CV_FONT_HERSHEY_PLAIN, 1.0,1.0),(0,255,0))
+
+def SpliImage(self,img):
+    if(img==None):
+        img=self.img
+
+    cv.Split(img, self.planeB,self.planeG,self.planeR,None)
+
+    planes=[self.planeR,self.planeG,self.planeB]
+    return planes
+
+def CalcHistoGram(self,plane_no=0,color="red"):
+    out=self.SpliImage(self.img)
+    cv.CalcHist([out[plane_no]],self.hist)
+    cv.NormalizeHist(self.hist, 1.0)
+
+    if(color=="red"):
+        self.color=(0,0,255)        
+    elif(color=="green"):
+        self.color=(0,255,0)
+    elif(color=="blue"):
+        self.color=(255,0,0)
+
+    self.DrawHisto()
+
+def DrawHisto(self):
+    #min,max,a,b=cv.GetMinMaxHistValue(self.hist)
+
+    for i in xrange(0,30):
+        val=cv.QueryHistValue_1D(self.hist,i)
+        val=val*600
+        v=ceil(val)
+
+        cv.Line(self.graph,(i*7+10,200),(i*7+10,200-int(v)),self.color,2)
+</code></pre>
+
+<p>def HistoThread():</p>
+
+<pre><code>h=Histogram(frm)
+h.CalcHistoGram(0,"red")
+h.CalcHistoGram(1,"green")
+#h.CalcHistoGram(2,"blue")
+
+cv.ShowImage("Red Plane Histogram",h.graph)
+del h #dereferencing h
+</code></pre>
+
+<p>if(<strong>name</strong>=="<strong>main</strong>"):</p>
+
+<pre><code>cap=cv.CreateCameraCapture(0)
+while(True):
+    t0=time.clock()
+    frm=cv.QueryFrame(cap)
+
+    threading.Thread(target=HistoThread()).start()
+
+    cv.ShowImage("video",frm)
+    t1=time.clock()
+    print "time taken: ",t1-t0
+    if(cv.WaitKey(10)&gt;10):
+        break
 </code></pre>
 
 <p>```</p>
 
-<p>Okay, so we done with GTk app right? But where is CSS? You have to add CSS using <code>GtkStyleContext</code> and <code>GtkCssProvider</code> these classes allows to import <code>css</code> file or embed css code in app. So first create a css that apply color to label.</p>
-
-<p>```css style.css</p>
-
-<h1>mylabel{</h1>
-
-<pre><code>color: #FF0000;
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Instead of <code>mylabel</code> you can use widget name i.e <code>GtkLabel</code>. Now its time to attach CSS to GTK apps.</p>
-
-<p>```python adding Style to Gtk</p>
-
-<p>style=Gtk.CssProvider()
-style.load_from_path('./style.css')
-Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),style,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-```</p>
-
-<p>and thats it. You done it.</p>
-
-<h3>Result</h3>
-
-<p><img src="/images/css_gtk/gtk-css.png" width="200"></p>
+<p><img src="/images/histogram/lenna.png" width="400">
+<img src="/images/histogram/histo.png" width="200"></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[notify-me]]></title>
-    <link href="http://akash0x53.github.com/blog/2013/08/05/notify-me/"/>
-    <updated>2013-08-05T11:38:00+05:30</updated>
-    <id>http://akash0x53.github.com/blog/2013/08/05/notify-me</id>
-    <content type="html"><![CDATA[<p>"Notify-Me" a simple notifier! <!--more--></p>
+    <title type="html"><![CDATA[Send SMS from your Desktop]]></title>
+    <link href="http://akash0x53.github.com/blog/2012/12/29/send-sms-from-your-desktop/"/>
+    <updated>2012-12-29T12:45:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2012/12/29/send-sms-from-your-desktop</id>
+    <content type="html"><![CDATA[<p>This is my first application that i coded in Python and designed GUI using Glade+Gtk.</br>
+Millions of people use way2sms site for sending free SMS across india. There is no official desktop application provided by way2sms. So i create this app that gives you good GUI,faster speed,same contact list as you have on your way2sms account.</p>
 
-<p>I was frequently visiting university website for result. I belonged to University of Pune which has no fixed schedule for declaration of result at all. But i was tired of this! Also website doesn't have RSS feed facility. So I decided to write a small app that could periodically extract the webpage, check for changes any made, if yes then it send me a SMS via <a href="http://www.fullonsms.com">FullonSMS</a>. ;)</p>
+<!--more-->
 
-<p>I didn't want to waste my electricity and bandwidth for this app, so i deployed it on <a href="http://www.heroku.com">Heroku.com</a>, and it worked. "notify-me" had given notification at 00:30AM!</p>
 
-<p>This application is at the initial stages. You can fork it from <a href="https://github.com/akash0x53/notify-me">here</a>. Pull requests are most welcome.</p>
+
+
+<h3>Why I wrote this app? </h3>
+
+
+<p>
+Who don't like to Texting friends?</p>
+
+<p>Platform: GNU/Debain based Linux ( Ubuntu 11.10)<br/>
+Language: Python (version 2.7.3)<br/>
+External libraries: <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup 4</a>, <a href="http://www.pygtk.org/">PyGtk</a> <br/>
+UI tool: <a href="http://glade.gnome.org/">Glade 3.8</a></p>
+
+<p><a href="https://github.com/akash0x53/way2SMS/archive/master.zip">Download source code</a></p>
+
+<p>GitHub repository <a href="https://github.com/akash0x53/way2SMS">here</a></p>
+
+<p>These are snapshots of Way2SMS-Desktop App v1.0</p>
+
+<p><img src="/images/way2sms/1.png" width="500">
+<img src="/images/way2sms/2.png" width="300">
+<img src="/images/way2sms/4.png" width="500">
+<img src="/images/way2sms/5.png" width="500">
+<img src="/images/way2sms/6.png" width="300"></p>
+
+<p>Have fun ! Enjoy Texting.</p>
 ]]></content>
   </entry>
   
