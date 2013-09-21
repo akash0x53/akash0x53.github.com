@@ -3,7 +3,7 @@ layout: post
 title: "Slise"
 date: 2013-09-22 00:26
 comments: true
-categories: 
+categories: [python, project]
 ---
 
 ####SLISE = Simple Local Image Search Engine <!--more-->
