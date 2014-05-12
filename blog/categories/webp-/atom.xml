@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: webp, | I'maKash]]></title>
+  <link href="http://akash0x53.github.com/blog/categories/webp-/atom.xml" rel="self"/>
+  <link href="http://akash0x53.github.com/"/>
+  <updated>2014-05-12T23:34:33+05:30</updated>
+  <id>http://akash0x53.github.com/</id>
+  <author>
+    <name><![CDATA[Akash]]></name>
+    <email><![CDATA[akash0x53s@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Copy Images from Quora]]></title>
+    <link href="http://akash0x53.github.com/blog/2014/05/12/copy-images-from-quora/"/>
+    <updated>2014-05-12T22:46:00+05:30</updated>
+    <id>http://akash0x53.github.com/blog/2014/05/12/copy-images-from-quora</id>
+    <content type="html"><![CDATA[<p>Ever tried to copy images from Quora? Didn't open? <!--more--></p>
+
+<p>You might have tried to save those memes from Quora using right click <code>Save As..</code> option. And obviously you've had failed to open it or Facebook rejected to upload it.<br/>
+The reason is Quora uses webp image format to load and render Webpages faster, as WebP images are smaller in size than JPEG and PNGs.</p>
+
+<p>So How can I download those images?<br/>
+1. Right click and open image in new tab<br/>
+2. Note <code>convert_to_webp</code> at the end of URL e.g <code>http://qph.is.quoracdn.net/main-qimg-cb898e021f74e6025ff0f92448df2d36?convert_to_webp=true</code><br/>
+3. Replace <code>true</code> with <code>false</code> and hit return.<br/>
+4. You've done it! Now you can download and use it.</p>
+
+<h4>Analysis</h4>
+
+<p><img src="/images/webp_jpeg.png" width="500"></p>
+]]></content>
+  </entry>
+  
+</feed>
